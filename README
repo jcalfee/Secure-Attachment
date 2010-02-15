@@ -1,0 +1,7 @@
+Directions are shown in the web page.  A password is used with AES 256 bit encryption to encrypt the attachments.
+
+Viewing mailers with small to medium size attachments works best on Firefox and Chrome.  
+
+Creating mailers worked on Firefox 3.6 (windows and linux).  Chrome Beta for Linux did not work.
+
+There may be limitations in size or performance based on the browser's ability to handle a large data URI.

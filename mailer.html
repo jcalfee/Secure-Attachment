@@ -142,22 +142,14 @@ function repaint() {
   var pw = password();
   var wk = document.getElementById('workspace');
   var pe = document.getElementById('passwordEntry');
-  var np = document.getElementById('noPassword');
-  if(pw.value == '' && np.value == '') {
-    np.value = true;
-    wk.style.display = 'none';
-    pe.style.display = 'block';
-    password().focus();
-  } else {
-    wk.style.display = 'block';
-    pe.style.display = 'none';
-    var dropList = document.getElementById('dropList');
-    dropList.innerHTML = '';
-    for (var i = 0; i < files.name.length; i++) {
-      name = files.name[i];
-      size = files.len[name];
-      addFileLink(name, size);//re-build dropList
-    }
+  wk.style.display = pw.value == '' ? 'none' : 'block';
+  pe.style.display = pw.value == '' ? 'block' : 'none';
+  var dropList = document.getElementById('dropList');
+  dropList.innerHTML = '';
+  for (var i = 0; i < files.name.length; i++) {
+    name = files.name[i];
+    size = files.len[name];
+    addFileLink(name, size);//re-build dropList
   }
   var si = document.getElementById('saveInstructions');
   si.style.display = files.name.length > 0 ? 'block' : 'none';
@@ -256,13 +248,9 @@ function pageEncode(blank) {
   var mydoc = w.document;
   var domHtml = document.documentElement.innerHTML;
   mydoc.write(domHtml);
-  if(blank)
-    mydoc.getElementById('noPassword').value = '';
-  else {
+  if(!blank) {
     var pw = mydoc.getElementById('password');
     pw.value = currentPw;
-    mydoc.getElementById('noPassword').value =
-      document.getElementById('noPassword').value;
   }
   mydoc.close();
 }

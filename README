@@ -1,7 +1,12 @@
-Directions are shown in the web page.  A password is used with AES 256 bit encryption to encrypt the attachments.
+This web page works without an Internet connection.  Also, it does not contact any servers.  
 
-Viewing mailers with small to medium size attachments works best on Firefox and Chrome.  
+The user provides a password and can then drag and drop files into this web page.  The files are immediately encrypted and kept in the browser's memory.  When the user saves the page, the encrypted files are saved to a single HTML file.  The saved HTML file will prompt for a password and then decrypt the files.
+
+Directions are shown in the web page.
+
+Retrieving files works best on Firefox and Chrome.
+
+Currently drag-and-drop only works with Firefox 3.6 or newer (Safari may work too).  The browser needs to support the HTML5 file interfaces and large data URIs.  Data URIs are used to get the files back out of the web page.
 
 Creating mailers worked on Firefox 3.6 (windows and linux).  Chrome Beta for Linux did not work.
 
-There may be limitations in size or performance based on the browser's ability to handle a large data URI.
